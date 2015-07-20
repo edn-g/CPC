@@ -1,2 +1,0 @@
-# CPC
-Arma III - CPC
