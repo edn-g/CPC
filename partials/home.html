@@ -1,0 +1,39 @@
+<section class="row">
+	<div class="col-md-3">
+		
+		<!-- START WIDGET MESSAGES -->
+		<a href="#" class="widget widget-default widget-item-icon">
+			<div class="widget-item-left">
+				<span class="fa fa-envelope"></span>
+			</div>                             
+			<div class="widget-data">
+				<div class="widget-int num-count">{{title}}</div>
+				<div class="widget-title">{{description}}</div>
+				<div class="widget-subtitle">{{message}}</div>
+			</div>
+		</a>                            
+		<!-- END WIDGET MESSAGES -->
+		
+	</div>
+	<div class="col-md-3">
+		
+		<!-- START WIDGET CLOCK -->
+		<div class="widget widget-info widget-padding-sm">
+			<div class="widget-big-int plugin-clock">{{time|date: 'HH:mm:ss'}}</div>                            
+			<div class="widget-subtitle plugin-date">{{timeStatus}}</div>                      
+			<div class="widget-buttons widget-c3">
+				<div class="col">
+					<a><span class="fa fa-clock-o"></span></a>
+				</div>
+				<div class="col">
+					<a><span class="fa fa-bell"></span></a>
+				</div>
+				<div class="col">
+					<a><span class="fa fa-calendar"></span></a>
+				</div>
+			</div>                            
+		</div>                        
+		<!-- END WIDGET CLOCK -->
+		
+	</div>
+</section>
