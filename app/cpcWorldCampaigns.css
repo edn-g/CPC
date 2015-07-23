@@ -11,8 +11,8 @@ html {
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 36px;
+    padding-bottom: 36px;
     background: none;
 }
 
@@ -32,9 +32,25 @@ a.thumbnail:hover {
     text-decoration: none;
 }
 
-.home-panel img.company-logo,
+.home-panel .company-logo,
 .home-panel .company-add {
     height: 200px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.home-panel .company-logo:before,
+.home-panel .company-add:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.home-panel .company-logo img {
+    max-height: 200px;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 .home-panel .company-add .fa {
