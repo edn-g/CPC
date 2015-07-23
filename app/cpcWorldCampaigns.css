@@ -32,8 +32,13 @@ a.thumbnail:hover {
     text-decoration: none;
 }
 
-.home-panel img.company-logo {
+.home-panel img.company-logo,
+.home-panel .company-add {
     height: 200px;
+}
+
+.home-panel .company-add .fa {
+    line-height: 280px;
 }
 
 .home-panel .company-name {
