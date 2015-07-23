@@ -1,0 +1,43 @@
+/* AngularUI Bootstrap hack */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+html {
+  margin:0;
+  padding:0;
+  background: url(http://conflitdecanard.eu/wp-content/uploads/2014/12/2014-05-29_00013.jpg) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: none;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.main-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+a.thumbnail:hover {
+    text-decoration: none;
+}
+
+.home-panel img.company-logo {
+    height: 200px;
+}
+
+.home-panel .company-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

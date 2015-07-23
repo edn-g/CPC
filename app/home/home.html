@@ -1,0 +1,15 @@
+<div class="panel panel-default home-panel">
+    <div class="panel-heading">
+        <h1 class="panel-title">CPC World Campaigns</h1>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 col-sm-6 thumb" ng-repeat="company in companies">
+            <a class="thumbnail" ui-sref="home">
+                <img class="company-logo" ng-src="{{company.logoUrl}}" alt="">
+                <div class="caption">
+                    <h3 class="company-name text-center">{{company.name}}</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
