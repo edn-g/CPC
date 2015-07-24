@@ -1,10 +1,11 @@
 'use strict';
 
 app.factory('Company', function() {
-    return function(id, name, logoUrl) {
+    return function(id) {
         this.id = id;
-        this.name = name;
-        this.logoUrl = logoUrl;
+        this.name = null;
+        this.logoUrl = null;
+        this.reputation = {rate: 0, comment: null};
     };
 });
 
@@ -12,11 +13,16 @@ app.service('CompanyManager', function($q, Company) {
     var ParseCompany = Parse.Object.extend('Company');
 
     var loadCompany = function(obj) {
-        var company = new Company(obj.id, obj.get('name'));
+        var company = new Company(obj.id);
+
+        company.name = obj.get('name');
         var logo = obj.get('logo');
         if (logo) {
             company.logoUrl = logo.url();
         }
+
+        company.reputation.rate = obj.get('reputationRate');
+        company.reputation.comment = obj.get('reputationComment');
 
         return company;
     };

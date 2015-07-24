@@ -47,7 +47,8 @@ a.thumbnail:hover {
     vertical-align: middle;
 }
 
-.home-panel .company-logo img {
+.home-panel .company-logo img,
+.company-panel .company-logo img {
     max-height: 200px;
     max-width: 100%;
     vertical-align: middle;
@@ -61,4 +62,9 @@ a.thumbnail:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.company-panel .company-funds {
+    font-size: 32px;
+    font-weight: bold;
 }
