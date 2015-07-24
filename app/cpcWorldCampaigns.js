@@ -7,12 +7,16 @@ var app = angular.module('cpcWorldCampaigns', [
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
-    $stateProvider
-        .state('home', {
-            url: '/',
-            templateUrl: 'app/home/home.html',
-            controller: 'homeController'
-        });
+    $stateProvider.state('home', {
+        url: '/',
+        templateUrl: 'app/view/home.html',
+        controller: 'homeController'
+    });
+    $stateProvider.state('company', {
+        url: '/company/{id}',
+        templateUrl: 'app/view/company.html',
+        controller: 'companyController'
+    });
 });
 
 

@@ -40,4 +40,20 @@ app.service('CompanyManager', function($q, Company) {
 
         return deferred.promise;
     };
+
+    this.findById = function(id) {
+        var deferred = $q.defer();
+
+        var query = new Parse.Query(ParseCompany);
+        query.get(id, {
+            success: function(result) {
+                deferred.resolve(loadCompany(result));
+            },
+            error: function(error) {
+                deferred.reject(error);
+            }
+        });
+
+        return deferred.promise;
+    };
 });

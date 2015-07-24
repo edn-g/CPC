@@ -1,0 +1,24 @@
+<div class="panel panel-default home-panel">
+    <div class="panel-heading">
+        <button type="button" class="close" aria-label="Close" ui-sref="home"><span aria-hidden="true">&times;</span></button>
+        <h1 class="panel-title">{{company.name}}</h1>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <div class="thumbnail">
+                <div class="company-logo"><img ng-src="{{company.logoUrl}}" alt=""></div>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-push-6 col-sm-4 col-sm-push-4 col-xs-6 text-right">
+            <div ng-init="maxRate = 5">
+                <rating ng-model="maxRate - (company.reputation.rate * maxRate)" max="maxRate" readonly="true" state-on="'fa fa-star-o fa-2x'" state-off="'fa fa-star fa-2x'" popover="{{company.reputation.comment}}" popover-title="Réputation" popover-trigger="mouseenter" popover-placement="left"></rating>
+            </div>
+        </div>
+        <div class="col-md-6 col-md-pull-3 col-sm-4 col-sm-pull-4 col-xs-6">
+            <dl class="dl-horizontal">
+                <dt>Commandant</dt>
+                <dd>{{company.commander}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

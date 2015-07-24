@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="col-md-4 col-sm-6 thumb" ng-repeat="company in companies">
-            <a class="thumbnail" ui-sref="home">
+            <a class="thumbnail" ui-sref="company({id: company.id})">
                 <div class="company-logo"><img ng-src="{{company.logoUrl}}" alt=""></div>
                 <div class="caption">
                     <h3 class="company-name text-center">{{company.name}}</h3>
