@@ -64,7 +64,12 @@ a.thumbnail:hover {
     text-overflow: ellipsis;
 }
 
+.company-panel-heading {
+    /*min-height: 200px;*/
+    margin-bottom: 12px;
+}
+
 .company-panel .company-funds {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
 }
