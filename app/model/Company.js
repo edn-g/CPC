@@ -1,48 +1,55 @@
 'use strict';
 
-app.factory('Company', function() {
-    return function(id) {
-        this.id = id;
-        this.name = null;
-        this.logoUrl = null;
-        this.reputation = {rate: 0, comment: null};
-    };
-});
+app.service('CompanyManager', ['$q', function($q) {
 
-app.service('CompanyManager', function($q, Company) {
-    var ParseCompany = Parse.Object.extend('Company');
+    // Company object
+    var Company = Parse.Object.extend('Company', {
+        exportView: function() {
+            this.name = this.get('name');
+            var logo = this.get('logo');
+            if (logo) {
+                this.logoUrl = logo.url();
+            }
 
-    var loadCompany = function(obj) {
-        var company = new Company(obj.id);
+            this.reputation = {
+                rate: this.get('reputationRate') * 5, // 5 is max rate stars
+                comment: this.get('reputationComment')
+            };
 
-        company.name = obj.get('name');
-        var logo = obj.get('logo');
-        if (logo) {
-            company.logoUrl = logo.url();
+            return this;
         }
+    });
 
-        company.reputation.rate = obj.get('reputationRate');
-        company.reputation.comment = obj.get('reputationComment');
+    var CompanyCollection = Parse.Collection.extend({
+        model: Company,
+        query: new Parse.Query(Company),
+        exportView: function() {
+            var data = []
+            angular.forEach(this, function(company) {
+                data.push(company.exportView());
+            });
+            return data;
+        }
+    });
 
-        return company;
-    };
+    // Cache
+    var companies = new CompanyCollection();
 
     this.findAll = function() {
         var deferred = $q.defer();
 
-        var query = new Parse.Query(ParseCompany);
-        query.find({
-            success: function(results) {
-                var data = [];
-                angular.forEach(results, function(result) {
-                    data.push(loadCompany(result));
-                });
-                deferred.resolve(data);
-            },
-            error: function(error) {
-                deferred.reject(error);
-            }
-        });
+        if (companies.length) {
+            deferred.resolve(companies);
+        } else {
+            companies.fetch({
+                success: function(result) {
+                    deferred.resolve(result);
+                },
+                error: function(error) {
+                    deferred.reject(error);
+                }
+            });
+        }
 
         return deferred.promise;
     };
@@ -50,16 +57,20 @@ app.service('CompanyManager', function($q, Company) {
     this.findById = function(id) {
         var deferred = $q.defer();
 
-        var query = new Parse.Query(ParseCompany);
-        query.get(id, {
-            success: function(result) {
-                deferred.resolve(loadCompany(result));
+        this.findAll().then(
+            function(result) {
+                var company = result.get(id);
+                if (company instanceof Company) {
+                    deferred.resolve(company);
+                } else {
+                    deferred.reject('Company ID not found');
+                }
             },
-            error: function(error) {
+            function(error) {
                 deferred.reject(error);
             }
-        });
+        );
 
         return deferred.promise;
     };
-});
+}]);

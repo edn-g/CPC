@@ -10,9 +10,7 @@
             </div>
             <div class="col-md-9 col-sm-8 col-xs-6 text-right">
                 <div ng-init="funds = 237320.1"><samp class="company-funds">{{funds|currency:""}} §</samp></div>
-                <div ng-init="maxRate = 5">
-                    <rating ng-model="maxRate - (company.reputation.rate * maxRate)" max="maxRate" readonly="true" state-on="'fa fa-star-o fa-2x'" state-off="'fa fa-star fa-2x'" popover="{{company.reputation.comment}}" popover-title="Réputation" popover-trigger="mouseenter" popover-placement="left"></rating>
-                </div>
+                <rating ng-model="company.reputation.rate" readonly="true" state-on="'fa fa-star fa-2x'" state-off="'hidden'" popover="{{company.reputation.comment}}" popover-title="Réputation" popover-trigger="mouseenter" popover-placement="left"></rating>
             </div>
         </div>
 
