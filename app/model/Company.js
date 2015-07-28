@@ -16,6 +16,9 @@ app.service('CompanyManager', ['$q', function($q) {
                 comment: this.get('reputationComment')
             };
 
+            this.capital = this.get('capital');
+            this.cash = this.get('cash');
+
             return this;
         }
     });
