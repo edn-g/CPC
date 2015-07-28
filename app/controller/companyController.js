@@ -6,6 +6,7 @@ app.controller('companyController', function($scope, $state, $stateParams, Compa
             company.commander = 'Machin Bidule';
             $scope.company = company.exportView();
             $scope.roleCommander = UserManager.getCurrent().isCommanderOf(company);
+            $scope.roleAdmin = UserManager.getCurrent().isAdmin();
         },
         function(error) {
             $state.go('home'); // TODO: 404 error page or alert
