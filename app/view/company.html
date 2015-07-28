@@ -9,8 +9,15 @@
                     <div class="company-logo"><img ng-src="{{company.logoUrl}}" alt=""></div>
             </div>
             <div class="col-md-9 col-sm-8 col-xs-6 text-right">
-                <div ng-init="funds = 237320.1"><samp class="company-funds">{{funds|currency:""}} §</samp></div>
-                <rating ng-model="company.reputation.rate" readonly="true" state-on="'fa fa-star fa-2x'" state-off="'hidden'" popover="{{company.reputation.comment}}" popover-title="Réputation" popover-trigger="mouseenter" popover-placement="left"></rating>
+                <div>
+                    <samp class="company-funds">{{company.cash|currency:""}} §</samp>
+                </div>
+                <div>
+                    <rating ng-model="company.reputation.rate" readonly="true"
+                            state-on="'fa fa-star fa-2x'" state-off="'hidden'"
+                            popover="{{company.reputation.comment}}" popover-title="Réputation"
+                            popover-trigger="mouseenter" popover-placement="left"></rating>
+                </div>
             </div>
         </div>
 
@@ -24,7 +31,7 @@
                         <tab-heading><span class="fa fa-history"></span> Historique</tab-heading>
                     </tab>
                     <tab ng-show="roleAdmin||roleCommander">
-                        <tab-heading><span class="fa fa-plus"></span> Mission</tab-heading>
+                        <tab-heading><span class="fa fa-crosshairs"></span> Mission</tab-heading>
                     </tab>
                 </tabset>
             </div>

@@ -4,7 +4,7 @@
 html {
   margin:0;
   padding:0;
-  background: url(http://conflitdecanard.eu/wp-content/uploads/2014/12/2014-05-29_00013.jpg) no-repeat center fixed;
+  background: url(http://impiousdigest.com/wp-content/uploads/simple-one-color-grey-background-1920x12002.jpg) no-repeat center fixed;
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; /* version standardisée */
 }
@@ -30,6 +30,15 @@ body {
 
 a.thumbnail:hover {
     text-decoration: none;
+}
+
+.home-panel {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.home-panel,
+.company-panel {
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .home-panel .company-logo,
