@@ -134,9 +134,6 @@
 	</TD>
 	</TR>
 	</TABLE>
-	<p style="font-family:verdana;font-size:7pt;color:darkgrey;text-align:center;padding:10px;">
-	"squad.xsl" by <a href="http://www.csar-clan.net">TomNedry</a>, last change: 15.Jul09
-	</p>
 	</BODY>
 	</HTML>
 </xsl:template>
