@@ -2,7 +2,7 @@
 <!DOCTYPE squad SYSTEM "squad.dtd">
 <?xml-stylesheet href="squad.xsl?" type="text/xsl"?>
 
-<squad nick="[CPC] Conflit de Canard">
+<squad nick="CPC - Conflit de Canard">
 <name>Conflit de Canard</name>
 <email>n/a</email>
 <web>conflitdecanard.eu</web>
